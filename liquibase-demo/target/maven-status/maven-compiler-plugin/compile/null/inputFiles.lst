@@ -1,0 +1,5 @@
+/home/dt002/Documents/Quarkus/liquibase-demo/src/main/java/org/liquibase/controller/MigrationResource.java
+/home/dt002/Documents/Quarkus/liquibase-demo/src/main/java/org/liquibase/entity/Movie.java
+/home/dt002/Documents/Quarkus/liquibase-demo/src/main/java/org/liquibase/repository/MovieRepository.java
+/home/dt002/Documents/Quarkus/liquibase-demo/src/main/java/org/liquibase/service/MigrationService.java
+/home/dt002/Documents/Quarkus/liquibase-demo/src/main/java/org/liquibase/controller/MovieResource.java

@@ -1,0 +1,52 @@
+quarkus :
+  banner :
+    enabled : false
+  datasource :
+    db-kind : postgresql
+    jdbc :
+      max-size : 2
+  hibernate-orm :
+    database :
+      generation : validate
+    dialect : org.hibernate.spatial.dialect.postgis.PostgisPG95Dialect
+
+"%prod":
+  quarkus:
+    http :
+      proxy :
+        allow-forwarded : true
+        proxy-address-forwarding : true
+    datasource :
+      jdbc :
+        url : ${rds-db-url}
+      username : ${rds-db-username}
+      password : ${rds-db-password}
+    liquibase :
+      change-log : classpath:db.changelog/changeLog.xml
+      migrate-at-start : false
+    kubernetes :
+      deployment-kind : deployment
+      deployment-target : kubernetes
+      namespace : web-portal-api
+      part-of : web-portal-api
+      name : vehicle-service-api
+      replicas : 2
+      image-pull-policy : always
+    kubernetes-config :
+      enabled : true
+      secrets :
+        enabled : true
+        ~ : rds
+
+"%dev":
+  quarkus :
+    http :
+      host : localhost
+      port : 8080
+    datasource :
+      jdbc :
+        url : jdbc:postgresql://localhost:5432/postgres?currentSchema=liquibase
+      username : postgres
+      password : password
+    transaction-manager :
+      default-transaction-timeout : 10m

@@ -1,0 +1,7 @@
+org/liquibase/entity/Movie.class
+org/liquibase/repository/MovieRepository.class
+org/liquibase/controller/MigrationResource.class
+META-INF/panache-archive.marker
+org/liquibase/controller/MovieResource.class
+org/liquibase/service/MigrationService.class
+org/liquibase/controller/MigrationResource$SimpleChangeSetStatus.class
